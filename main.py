@@ -68,7 +68,10 @@ def main():
 
     #do comparison
     matchingBirths = comparison(birthdays)
-    print(comparison(birthdays))
+    if len(matchingBirths) != 0:
+        print("There were multiple births on these days:", *matchingBirths, sep=" ")
+    else:
+        print("There were no matching births this time!")
 
     #Determine Probability for group sizes
 
