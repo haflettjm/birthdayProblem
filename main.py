@@ -39,6 +39,21 @@ def amountBirthdays(amount):
 
     return birthdays
 
+def comparison(birthdays):
+    #get empty list of matching birthdays
+    matchingBirthdays = []
+
+    #for the current grab the birth in the enumerated birthday list
+    for index, birth in enumerate(birthdays):
+        #for the second value iterate through the list except for the last value
+        for value in birthdays[index+1:]:
+            if birth == value:
+                if birth not in matchingBirthdays:
+                    matchingBirthdays.append(birth)
+
+
+
+    return matchingBirthdays
 #main logic
 def main():
     #get the number of birthdays to generate
@@ -46,17 +61,14 @@ def main():
     #generate those birthdays
     birthdays = amountBirthdays(amount)
 
+    #print out the birthdays
     print('Here are the birthdays generated:\n')
-    print(*birthdays, sep=" ,")
+    print(*birthdays, sep=", ")
     print('\n')
 
     #do comparison
-
-
-
-
-
-    #Compare Two Birthdays
+    matchingBirths = comparison(birthdays)
+    print(comparison(birthdays))
 
     #Determine Probability for group sizes
 
