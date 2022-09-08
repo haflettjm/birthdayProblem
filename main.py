@@ -51,9 +51,31 @@ def comparison(birthdays):
                 if birth not in matchingBirthdays:
                     matchingBirthdays.append(birth)
 
-
-
     return matchingBirthdays
+
+
+def generateHundreds(amount):
+    #count how many times there were similar birthdays
+    birthdaysSame = 0
+
+    #Do it 1000000 times
+    print("0 simulations run....")
+    for x in range(1,100000):
+        #generate birthdays
+        smallBirthdays = amountBirthdays(amount)
+
+        # if they are similar add them to variable and if there is similars increment how many times birthdays were the
+        # same
+        similars = comparison(smallBirthdays)
+        if len(similars) != 0:
+            birthdaysSame += 1
+
+        #If the number a set of 10000
+        if (x % 10000) == 0:
+            print(f"{x} simulations run....")
+
+
+
 #main logic
 def main():
     #get the number of birthdays to generate
@@ -73,14 +95,8 @@ def main():
     else:
         print("There were no matching births this time!")
 
-    #Determine Probability for group sizes
-
-    #Multiple random trials
-
-    #figure out how many different pairs there are
-
-    #(groupSize * groupSize -1) / 2individuals = Set of comparisons
-
+    #Multiple random trials of 100000
+    generateHundreds(amount)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
