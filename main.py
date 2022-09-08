@@ -6,6 +6,7 @@ ments, in which we conduct multiple random trials to understand the likely outco
 '''
 
 from random import randint
+import keyboard
 
 
 #generate random birthdays
@@ -58,10 +59,12 @@ def generateHundreds(amount):
     #count how many times there were similar birthdays
     birthdaysSame = 0
 
+    input("Press Enter to begin....")
+
     #Do it 1000000 times
     print("0 simulations run....")
-    for x in range(1,100000):
-        #generate birthdays
+    for x in range(1, 100001):
+            #generate birthdays
         smallBirthdays = amountBirthdays(amount)
 
         # if they are similar add them to variable and if there is similars increment how many times birthdays were the
@@ -70,9 +73,15 @@ def generateHundreds(amount):
         if len(similars) != 0:
             birthdaysSame += 1
 
-        #If the number a set of 10000
+        #If the number a set of 10000 print simulations run if it is 100000 print simulations run
+        if x == 100000:
+            print("100000 simulations run.")
         if (x % 10000) == 0:
             print(f"{x} simulations run....")
+
+        percen = (birthdaysSame/100000) * 100
+
+    print(f"Out of 100000 simulations of {amount} people, there was a matching birthday in that group {birthdaysSame} times. This means that {amount} people have a % {percen} chance of having a matching birthday in their group. That's probably more then you would think!")
 
 
 
